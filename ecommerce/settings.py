@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l0v1!k=bc12347atytt(*cu3hxdx97=370jkrlpas1^nz^mi+z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["ecommerce-website-production.up.railway.app"]
+ALLOWED_HOSTS = ["ecommerce-website-production.up.railway.app", "localhost"]
 
 
 # Application definition
@@ -135,3 +135,5 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'

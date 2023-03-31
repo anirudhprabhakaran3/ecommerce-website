@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.description }}</p>
+            <p>Price: <b>{{ product.price }}</b></p>
+            <p>Quantity left: <b>{{ product.quantity }}</b></p>
+            <p>Vendor: <b>{{ product.seller.name }}</b></p>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+{% endblock %}

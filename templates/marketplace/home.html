@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto">
+    {% if user.is_authenticated %}
+        <h1 class="display-1">Hello, <b>{{ user.username }}</b></h1>
+    {% else %}
+        <h1 class="display-1">Welcome to <b>Urban Dukaan</b></h1>
+    {% endif %}
+</div>
+
+<div class="mt-5 container">
+    <h1>Latest Items</h1>
+    <div class="card-group">
+        {% for product in products %}
+            <a href="{% url 'view_product' product.id %}">
+                <div class="card m-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">Price: <b>{{ product.price }}</b> | Quantity left: <b>{{ product.quantity }}</b></p>
+                        <p class="card-text">Seller: <b>{{ product.seller.name }}</b></p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

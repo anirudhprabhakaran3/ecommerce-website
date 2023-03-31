@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+
 from registration.forms import CustomUserCreationForm
 
 # Create your views here.
@@ -14,6 +16,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+            messages.success(request, "Registered successfully!")
             return redirect('home')
     else:
         form = CustomUserCreationForm()

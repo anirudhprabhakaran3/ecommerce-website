@@ -1,5 +1,6 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from registration.models import User
+from registration.models import User, Address
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
@@ -12,4 +13,14 @@ class CustomUserCreationForm(UserCreationForm):
             'password1',
             'password2',
             'mobile_no',
+        )
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = (
+            'address',
+            'city',
+            'state',
+            'pincode',
         )

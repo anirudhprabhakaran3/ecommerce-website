@@ -12,3 +12,4 @@ class Address(models.Model):
     city = models.CharField(max_length=20)
     state = models.CharField(max_length=20)
     pincode = models.CharField(max_length=6)
+    seller_address = models.BooleanField(default=False)
