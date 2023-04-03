@@ -10,7 +10,7 @@ from marketplace.forms import AddItemToCartForm
 # Create your views here.
 
 def home(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('-quantity')
     args = {
         'products': products,
     }
@@ -100,7 +100,7 @@ def checkout(request):
             total_price=cart_item.total_price
         )
         product = cart_item.product
-        product.quantity -= 1
+        product.quantity -= cart_item.quantity
         product.save()
         cart_item.delete()
 

@@ -17,7 +17,7 @@ Home
     <h1>Latest Items</h1>
     <div class="card-group">
         {% for product in products %}
-            <a href="{% url 'view_product' product.id %}">
+            <a href="{% url 'view_product' product.id %}" {% if product.quantity == 0 %} class="disabled" {% endif %}>
                 <div class="card m-3">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
